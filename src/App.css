@@ -220,6 +220,11 @@
 .modal-close { background:transparent; border:0; font-size:1.4rem; line-height:1; cursor:pointer; }
 .modal-body { margin-top:12px; }
 
+/* Contact section */
+.contact p { margin: 6px 0; }
+.contact a { color: #7c3aed; text-decoration: none; font-weight:600; }
+.contact a:hover { text-decoration: underline; }
+
 
 @media (max-width: 520px) {
   .hero h1 { font-size: 1.6rem; }

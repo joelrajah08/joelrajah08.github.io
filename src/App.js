@@ -78,10 +78,12 @@ function App() {
 
         <section id="contact" className="section contact">
           <h2>Contact</h2>
+          <p>Email: <a href="mailto:joelrajah82@gmail.com">joelrajah82@gmail.com</a></p>
           <p>
-            Want to work together or have a question? Email me at{' '}
-            <a href="mailto:joel@example.com">joel@example.com</a> or find me on{' '}
-            <a href="https://github.com/joelrajah08" target="_blank" rel="noreferrer">GitHub</a>.
+            LinkedIn:{' '}
+            <a href="https://www.linkedin.com/in/joelrajah" target="_blank" rel="noreferrer">
+              linkedin.com/in/joelrajah
+            </a>
           </p>
         </section>
       </main>
