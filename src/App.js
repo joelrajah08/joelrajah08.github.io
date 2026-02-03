@@ -1,6 +1,8 @@
 import './App.css';
 import ProjectCard from './components/ProjectCard';
 import projects from './data/projects';
+import Timeline from './components/Timeline';
+import experience from './data/experience';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
             maintainable code.
           </p>
         </section>
+
+        <Timeline entries={experience} />
 
         <section id="projects" className="section projects">
           <h2>Projects</h2>
