@@ -10,9 +10,9 @@ function App() {
       <header className="hero">
         <div className="container">
           <h1 className="hero-name">Joel Rajah</h1>
-          <p className="hero-title">Computer Engineering Student @ University of Florida</p>
+          <p className="hero-title">Computer Engineering Student @ University of Florida — Jersey City, New Jersey</p>
           <p className="hero-tagline">
-            Building reliable engineering solutions, leading small teams, and delivering measurable impact through thoughtful software design.
+            Computer Engineering student focused on applying an engineering mindset to design reliable systems, lead teams, and deliver measurable real-world impact.
           </p>
           <div className="hero-cta">
             <a className="btn primary" href="#projects" aria-label="View Projects">View Projects</a>
@@ -25,10 +25,8 @@ function App() {
         <section id="about" className="section about">
           <h2>About</h2>
           <p>
-            I'm a software developer focusing on building responsive, user-
-            friendly web applications. My primary tools are React, JavaScript,
-            and modern CSS. I enjoy turning ideas into products with clean,
-            maintainable code.
+            I am a Computer Engineering student from Jersey City, New Jersey.
+            I apply an engineering mindset to design reliable, maintainable systems and prioritize measurable outcomes. I have led student teams and projects, driving solutions from concept to deployment with a focus on real-world impact and technical rigor.
           </p>
         </section>
 
@@ -91,6 +89,8 @@ function App() {
       <footer className="site-footer">
         <div className="container">
           <small>© {new Date().getFullYear()} Joel Rajah</small>
+          <br />
+          <small>Computer Engineering Student — University of Florida • Jersey City, New Jersey</small>
         </div>
       </footer>
     </div>
