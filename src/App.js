@@ -10,11 +10,6 @@ function App() {
       <section className="hero">
         <div className="hero-left">
           <h1>Joel Rajah</h1>
-          <img
-            src={`${process.env.PUBLIC_URL}/IMG_1392.jpeg`}
-            alt="Joel Rajah"
-            className="hero-photo"
-          />
         </div>
 
         <div className="hero-right">

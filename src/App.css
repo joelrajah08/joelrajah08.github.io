@@ -42,36 +42,23 @@ body, .portfolio {
   backdrop-filter: blur(6px);
 }
 
-/* Profile photo: circular crop, responsive size, and subtle shadow (no layout changes) */
-.hero-photo {
-  display: block;
-  margin: 12px auto 0;
-  width: clamp(72px, 18vw, 140px);
-  height: clamp(72px, 18vw, 140px);
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid rgba(255,255,255,0.04);
-  /* minimal, clean shadow only */
-  box-shadow: 0 6px 18px rgba(2,6,23,0.32);
-}
-
-/* Restore conservative, readable hero glow using text-shadow only */
+/* Restore original hero glow and remove profile-photo styles per request */
 /* Apply to both class and element-based selectors so markup variants are covered */
 .hero-name, .hero h1 {
   margin: 0 0 6px 0;
   font-size: 2.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  /* subtle purple glow tuned for the dark theme */
-  text-shadow: 0 8px 24px rgba(124,58,237,0.06), 0 2px 6px rgba(124,58,237,0.03);
+  /* original subtle purple glow used previously */
+  text-shadow: 0 6px 30px rgba(124,58,237,0.08), 0 2px 8px rgba(124,58,237,0.04);
 }
 
 .hero-title, .hero h2 {
   margin: 0 0 12px 0;
   color: var(--muted);
   font-weight: 600;
-  /* lighter, softer glow for subtitle */
-  text-shadow: 0 4px 12px rgba(124,58,237,0.04);
+  /* lighter, softer glow for subtitle (original) */
+  text-shadow: 0 4px 20px rgba(124,58,237,0.06);
 }
 
 .hero-name {
