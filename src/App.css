@@ -49,16 +49,16 @@ body, .portfolio {
   font-size: 2.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  /* original subtle purple glow used previously */
-  text-shadow: 0 6px 30px rgba(124,58,237,0.08), 0 2px 8px rgba(124,58,237,0.04);
+  /* Dark gradient glow (text-shadow only). Stronger glow for the hero name. */
+  text-shadow: 0 10px 30px rgba(6,12,34,0.75), 0 2px 8px rgba(6,12,34,0.48);
 }
 
 .hero-title, .hero h2 {
   margin: 0 0 12px 0;
   color: var(--muted);
   font-weight: 600;
-  /* lighter, softer glow for subtitle (original) */
-  text-shadow: 0 4px 20px rgba(124,58,237,0.06);
+  /* Softer, subtler dark glow for subtitle. No neon colors, no animations. */
+  text-shadow: 0 6px 20px rgba(6,12,34,0.5);
 }
 
 .hero-name {
@@ -302,8 +302,8 @@ body, .portfolio {
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Hero entrance */
-.hero .container { opacity: 0; transform: translateY(-6px); animation: fadeDown .5s ease forwards; }
+/* Hero entrance - disabled to honor 'no animations' request */
+.hero .container { opacity: 1; transform: none; animation: none; }
 
 /* Staggered project cards */
 .projects .grid .project-card { opacity: 0; transform: translateY(8px); animation: fadeUp .42s ease forwards; }
