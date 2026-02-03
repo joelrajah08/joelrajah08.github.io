@@ -7,13 +7,15 @@ function App() {
     <div className="portfolio">
       <header className="hero">
         <div className="container">
-          <h1>Joel Rajah</h1>
-          <p className="tagline">Frontend developer — React & JavaScript</p>
-          <p className="cta">
-            I'm Joel. I build accessible, performant web apps. Browse a few
-            projects below or get in touch.
+          <h1 className="hero-name">Joel Rajah</h1>
+          <p className="hero-title">Computer Engineering Student @ University of Florida</p>
+          <p className="hero-tagline">
+            Building reliable engineering solutions, leading small teams, and delivering measurable impact through thoughtful software design.
           </p>
-          <a className="btn" href="#projects">See projects</a>
+          <div className="hero-cta">
+            <a className="btn primary" href="#projects" aria-label="View Projects">View Projects</a>
+            <a className="btn outline" href="#contact" aria-label="Contact Me">Contact Me</a>
+          </div>
         </div>
       </header>
 
