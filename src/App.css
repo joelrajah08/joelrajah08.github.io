@@ -225,6 +225,57 @@
 .contact a { color: #7c3aed; text-decoration: none; font-weight:600; }
 .contact a:hover { text-decoration: underline; }
 
+/* Subtle animations (CSS only) */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(8px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Hero entrance */
+.hero .container { opacity: 0; transform: translateY(-6px); animation: fadeDown .5s ease forwards; }
+
+/* Staggered project cards */
+.projects .grid .project-card { opacity: 0; transform: translateY(8px); animation: fadeUp .42s ease forwards; }
+.projects .grid .project-card:nth-child(1) { animation-delay: 0.04s; }
+.projects .grid .project-card:nth-child(2) { animation-delay: 0.12s; }
+.projects .grid .project-card:nth-child(3) { animation-delay: 0.20s; }
+.projects .grid .project-card:nth-child(4) { animation-delay: 0.28s; }
+.projects .grid .project-card:nth-child(5) { animation-delay: 0.36s; }
+.projects .grid .project-card:nth-child(6) { animation-delay: 0.44s; }
+
+/* Staggered timeline items */
+.timeline-item { opacity: 0; transform: translateY(8px); animation: fadeUp .38s ease forwards; }
+.timeline-item:nth-child(1) { animation-delay: 0.06s; }
+.timeline-item:nth-child(2) { animation-delay: 0.14s; }
+.timeline-item:nth-child(3) { animation-delay: 0.22s; }
+.timeline-item:nth-child(4) { animation-delay: 0.30s; }
+
+/* Modal entrance */
+.modal-content { transform: translateY(8px) scale(.98); opacity: 0; animation: modalIn .18s ease forwards; }
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero .container,
+  .projects .grid .project-card,
+  .timeline-item,
+  .modal-content {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
 
 @media (max-width: 520px) {
   .hero h1 { font-size: 1.6rem; }
