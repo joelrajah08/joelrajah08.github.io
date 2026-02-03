@@ -7,19 +7,28 @@ import experience from './data/experience';
 function App() {
   return (
     <div className="portfolio">
-      <header className="hero">
-        <div className="container">
-          <h1 className="hero-name">Joel Rajah</h1>
-          <p className="hero-title">Computer Engineering Student @ University of Florida — Jersey City, New Jersey</p>
-          <p className="hero-tagline">
-            Computer Engineering student focused on applying an engineering mindset to design reliable systems, lead teams, and deliver measurable real-world impact.
+      <section className="hero">
+        <div className="hero-left">
+          <h1>Joel Rajah</h1>
+          <img
+            src="/IMG_1392.jpeg"
+            alt="Joel Rajah"
+            className="hero-photo"
+          />
+        </div>
+
+        <div className="hero-right">
+          <h2>Computer Engineering Student @ University of Florida — Jersey City, New Jersey</h2>
+          <p>
+            Computer Engineering student focused on applying an engineering mindset
+            to design reliable systems, lead teams, and deliver measurable real-world impact.
           </p>
-          <div className="hero-cta">
-            <a className="btn primary" href="#projects" aria-label="View Projects">View Projects</a>
-            <a className="btn outline" href="#contact" aria-label="Contact Me">Contact Me</a>
+          <div className="hero-buttons">
+            <button type="button">View Projects</button>
+            <button type="button">Contact Me</button>
           </div>
         </div>
-      </header>
+      </section>
 
       <main className="container">
         <section id="about" className="section about">
