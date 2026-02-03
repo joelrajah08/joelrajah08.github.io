@@ -32,6 +32,39 @@ function App() {
           </p>
         </section>
 
+        <section id="skills" className="section skills-section">
+          <h2>Skills</h2>
+
+          <div className="skills-grid">
+            <div className="skills-group">
+              <h4>Technical</h4>
+              <div className="skill-pills">
+                <span className="skill-pill">JavaScript</span>
+                <span className="skill-pill">HTML</span>
+                <span className="skill-pill">React</span>
+              </div>
+            </div>
+
+            <div className="skills-group">
+              <h4>Other</h4>
+              <div className="skill-pills">
+                <span className="skill-pill">Leadership</span>
+                <span className="skill-pill">Public Speaking</span>
+                <span className="skill-pill">Research Writing</span>
+                <span className="skill-pill">Event Planning</span>
+              </div>
+            </div>
+
+            <div className="skills-group">
+              <h4>Languages</h4>
+              <div className="skill-pills">
+                <span className="skill-pill">English (Fluent)</span>
+                <span className="skill-pill">Spanish</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <Timeline entries={experience} />
 
         <section id="projects" className="section projects">
