@@ -11,7 +11,7 @@ function App() {
         <div className="hero-left">
           <h1>Joel Rajah</h1>
           <img
-            src="/IMG_1392.jpeg"
+            src={process.env.PUBLIC_URL + '/IMG_1392.jpeg'}
             alt="Joel Rajah"
             className="hero-photo"
           />
