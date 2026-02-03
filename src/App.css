@@ -164,6 +164,22 @@
   margin-right: 10px;
 }
 
+/* Project grid specifics */
+.projects .grid { margin-top: 12px; }
+.project-card { display:flex; flex-direction:column; justify-content:space-between; }
+.project-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+.project-title { margin:0; font-size:1.05rem; }
+.project-desc { margin: 10px 0 14px; color:#475569; }
+.project-tech { display:flex; flex-wrap:wrap; gap:8px; }
+.tech-badge { background:#eef2ff; color:#1e293b; padding:4px 8px; border-radius:999px; font-size:0.78rem; }
+.project-actions { display:flex; gap:10px; margin-top:8px; }
+.project-link { padding:8px 12px; border-radius:8px; text-decoration:none; background:#7c3aed; color:#fff; font-weight:600; }
+.project-link.muted { background:transparent; color:#475569; border:1px solid #e6e9ef; }
+
+@media (min-width: 960px) {
+  .projects .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 @media (max-width: 520px) {
   .hero h1 { font-size: 1.6rem; }
   .container { width: 94%; }
