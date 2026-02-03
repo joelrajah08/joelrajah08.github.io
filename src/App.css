@@ -49,16 +49,16 @@ body, .portfolio {
   font-size: 2.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  /* Dark gradient glow (text-shadow only). Stronger glow for the hero name. */
-  text-shadow: 0 10px 30px rgba(6,12,34,0.75), 0 2px 8px rgba(6,12,34,0.48);
+  /* Restored original soft purple glow using text-shadow. Stronger on the name. */
+  text-shadow: 0 10px 30px rgba(124,58,237,0.14), 0 2px 8px rgba(124,58,237,0.06) !important;
 }
 
 .hero-title, .hero h2 {
   margin: 0 0 12px 0;
   color: var(--muted);
   font-weight: 600;
-  /* Softer, subtler dark glow for subtitle. No neon colors, no animations. */
-  text-shadow: 0 6px 20px rgba(6,12,34,0.5);
+  /* Softer purple glow for subtitle (subtle). Use !important to ensure it applies. */
+  text-shadow: 0 6px 20px rgba(124,58,237,0.06) !important;
 }
 
 .hero-name {
