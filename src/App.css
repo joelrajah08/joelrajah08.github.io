@@ -238,6 +238,13 @@ a:hover { color: var(--accent); transform: translateY(-2px); }
   gap: 16px;
 }
 
+/* Centered CTA container and consistent CTA button styles */
+.hero-cta--center { display:flex; justify-content:center; gap:12px; margin-top: 18px; }
+.btn-cta { background: #7f6af0; color: #ffffff; border: none; border-radius: 8px; padding: 0.6rem 1.4rem; cursor: pointer; display:inline-flex; align-items:center; justify-content:center; font-weight:600; text-decoration:none; min-width: 160px; transition: background 160ms ease, transform 120ms ease, box-shadow 160ms ease; }
+.btn-cta:hover, .btn-cta:focus { background: #6a55d4; }
+.btn-cta:active { transform: translateY(1px); }
+
+
 /* Timeline styles */
 .timeline-section h2 { margin-bottom: 18px; }
 .timeline {

@@ -36,10 +36,10 @@ function App() {
             Computer Engineering student focused on applying an engineering mindset
             to design reliable systems, lead teams, and deliver measurable real-world impact.
           </p>
-          <div className="hero-buttons">
-            <button type="button">View Projects</button>
-            <button type="button">Contact Me</button>
-          </div>
+            <div className="hero-cta hero-cta--center">
+              <a className="btn btn-cta" href="#projects">View Projects</a>
+              <a className="btn btn-cta" href="#contact">Contact Me</a>
+            </div>
         </div>
       </section>
 
