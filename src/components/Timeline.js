@@ -24,6 +24,7 @@ export default function Timeline({ entries = [], id = 'leadership', title = 'Lea
                       <span className="timeline-org">{e.org}</span>
                       {e.location && <span>{e.location}</span>}
                       {e.date && <span className="timeline-date">{e.date}</span>}
+                      {e.affiliation && <span>{e.affiliation}</span>}
                     </div>
                   </div>
                   <ul className="card-points">

@@ -11,6 +11,7 @@ const activities = [
   {
     "role": "Active Member",
     "org": "National Society of Black Engineers",
+    "affiliation": "NYU & University of Florida Chapters",
     "logo": "images/nsbe-logo.png",
     "location": "University of Florida · Gainesville, FL",
     "points": [

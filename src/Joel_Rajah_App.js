@@ -158,6 +158,7 @@ function App() {
               <h3 className="card-title">New York University Tandon School of Engineering</h3>
               <p>B.S. Computer Engineering · <span className="date-label">Class of 2029</span></p>
               <p>Brooklyn, New York</p>
+              <p>Relevant Coursework: Data Structures &amp; Algorithms, Fundamentals of Electric Circuits, Linear Algebra &amp; Differential Equations</p>
             </div>
             <div className="surface-card">
               <h3 className="card-title">Dr. Ronald E. McNair Academic High School</h3>
@@ -180,6 +181,7 @@ function App() {
                 <span className="skill-pill">CSS</span>
                 <span className="skill-pill">CAD</span>
                 <span className="skill-pill">React</span>
+                <span className="skill-pill">GitHub</span>
               </div>
             </div>
 

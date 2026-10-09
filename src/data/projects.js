@@ -26,7 +26,7 @@ const projects = [
       "React",
       "TypeScript",
       "Vite",
-      "REST APIs"
+      "Reset APIs"
     ],
     "points": [
       "Developed a React and TypeScript frontend for an RC car telemetry chatbot, designing an interactive interface for querying vehicle data through natural-language inputs.",
