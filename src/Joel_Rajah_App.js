@@ -14,8 +14,8 @@ const navigation = [
   ['about', 'About'],
   ['education', 'Education'],
   ['skills', 'Skills'],
-  ['leadership', 'Experience'],
   ['projects', 'Projects'],
+  ['leadership', 'Experience'],
   ['activities', 'Activities'],
   ['contact', 'Contact'],
 ];
@@ -203,8 +203,6 @@ function App() {
           </div>
         </section>
 
-        <Timeline entries={experience} />
-
         <section id="projects" className="section projects">
           <span className="section-label" aria-hidden="true">{'// projects'}</span>
           <h2 className="section-heading">Projects</h2>
@@ -214,6 +212,8 @@ function App() {
             ))}
           </div>
         </section>
+
+        <Timeline entries={experience} />
 
         <Timeline entries={activities} id="activities" title="Activities" />
 
