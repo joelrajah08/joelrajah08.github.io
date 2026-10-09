@@ -26,7 +26,7 @@ export default function SectionBackground({ activeSection }) {
   }
 
   return (
-    <div className="section-background" aria-hidden="true">
+    <div className="section-background" data-section={visibleScene === 'pcb' ? activeSection : visibleScene} aria-hidden="true">
       <div className={`background-scene background-pcb ${visibleScene === 'pcb' ? 'is-active' : ''}`}><CircuitBoard /></div>
       {Object.entries(sectionPhotos).map(([section, photos]) => (
         <div className={`background-scene ${visibleScene === section ? 'is-active' : ''}`} key={section} data-background={section}>
