@@ -224,6 +224,7 @@ function App() {
           <h2 className="section-heading">Contact</h2>
           <div className="section-body surface-card">
             <p>Email: <a href="mailto:joelrajah82@gmail.com">joelrajah82@gmail.com</a></p>
+            <p>School email: <a href="mailto:jr7178@nyu.edu">jr7178@nyu.edu</a></p>
             <p>Phone: <a href="tel:+12017053755">(201) 705-3755</a></p>
             <p>
               LinkedIn:{' '}
