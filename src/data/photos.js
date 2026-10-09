@@ -4,7 +4,7 @@ export const projectPhotos = {};
 
 export const sectionPhotos = {
   about: ['images/jersey-city.jpg'],
-  education: ['images/jersey-city.jpg', 'images/dumbo-nyu-tandon.jpg'],
+  education: ['images/dumbo-nyu-tandon.jpg'],
   leadership: ['images/leadership-experience.jpg'],
   activities: ['images/guyana.jpg'],
 };
