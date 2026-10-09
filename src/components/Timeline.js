@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Timeline({ entries = [] }) {
+export default function Timeline({ entries = [], id = 'leadership', title = 'Leadership & Experience' }) {
   return (
-    <section id="leadership" className="section timeline-section">
-      <h2>Leadership & Experience</h2>
+    <section id={id} className="section timeline-section">
+      <h2>{title}</h2>
       <div className="timeline">
         {entries.map((e, idx) => (
           <div className="timeline-item" key={e.role + idx}>
@@ -13,7 +13,8 @@ export default function Timeline({ entries = [] }) {
                 <h3 className="timeline-role">{e.role}</h3>
                 <div className="timeline-meta">
                   <span className="timeline-org">{e.org}</span>
-                  <span className="timeline-date">{e.date}</span>
+                  {e.location && <span>{e.location}</span>}
+                  {e.date && <span className="timeline-date">{e.date}</span>}
                 </div>
               </div>
               <ul className="timeline-points">

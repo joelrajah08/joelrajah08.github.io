@@ -1,32 +1,22 @@
 const experience = [
   {
-    role: "Founder",
-    org: "UFit Program",
-    date: "2023 – Present",
-    points: [
-      "Launched youth fitness & mental strength initiative",
-      "Led weekly in-person sessions impacting 1,000+ students",
-      "Focused on confidence, discipline, and wellness"
+    "role": "Cohort Member",
+    "org": "UF Trailblazers First-Year Leadership Program",
+    "location": "University of Florida · Gainesville, FL",
+    "date": "2025 – 2026",
+    "points": [
+      "Selected as 1 of 33 first-year engineering students for a competitive year-long leadership program; organized academic and social development activities fostering peer support, accountability, and cross-disciplinary collaboration.",
+      "Expanded professional and community impact by engaging with 10+ industry professionals and alumni through mentorship and career workshops, and partnering with 10+ campus organizations to execute service initiatives benefiting the Gainesville community."
     ]
   },
   {
-    role: "Cohort Member",
-    org: "UF Trailblazers Leadership Program",
-    date: "2024 – Present",
-    points: [
-      "Selected as 1 of 33 first-year engineering students",
-      "Engaged with industry professionals and alumni mentors",
-      "Led service initiatives with campus organizations"
-    ]
-  },
-  {
-    role: "Co-Founder & Web Developer",
-    org: "EmpowerED Learners",
-    date: "2024 – 2025",
-    points: [
-      "Built a website for special education resources",
-      "Integrated translation features for immigrant families",
-      "Reached 1,200+ students through digital outreach"
+    "role": "Co-Founder, Web Developer & Civic Leadership Fellow",
+    "org": "EmpowerED Learners & Alli Leadership Institute",
+    "location": "Jersey City, NJ",
+    "date": "2023 – 2026",
+    "points": [
+      "Co-founded EmpowerED Learners, a nonprofit advancing special education awareness; reached 1,200+ students through community and Board of Education partnerships and developed a multilingual resource website to improve accessibility for immigrant families.",
+      "Selected for a competitive 8-week Alli Leadership Institute fellowship, working alongside Jersey City mayoral candidate Mussab Ali on campaign strategy, grassroots outreach, and community initiatives; collaborated with local stakeholders to increase civic awareness and strengthen community participation across Jersey City."
     ]
   }
 ];
