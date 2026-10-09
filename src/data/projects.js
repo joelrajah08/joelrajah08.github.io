@@ -18,6 +18,7 @@ const projects = [
   },
   {
     "id": "rc-car-interface",
+    "description": "A natural-language chatbot interface for querying live RC car telemetry.",
     "title": "RC Car Control Interface",
     "role": "Frontend Developer",
     "date": "April 2026 - June 2026",

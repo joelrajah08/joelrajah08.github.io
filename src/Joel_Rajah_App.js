@@ -6,6 +6,7 @@ import Timeline from './components/Timeline';
 import experience from './data/experience';
 import activities from './data/activities';
 import HeroBanner from './components/HeroBanner';
+import SectionBackground from './components/SectionBackground';
 
 const navigation = [
   ['about', 'About'],
@@ -107,6 +108,7 @@ function App() {
 
   return (
     <div className="portfolio">
+      <SectionBackground activeSection={activeSection} />
       <header className="site-nav" role="banner" ref={navRef}>
         <div className="container nav-inner">
           <div className="brand">Joel Rajah</div>
@@ -149,10 +151,17 @@ function App() {
 
         <section id="education" className="section">
           <h2 className="section-heading">Education</h2>
-          <div className="section-body surface-card">
-            <h3 className="card-title">New York University Tandon School of Engineering</h3>
-            <p>B.S. Computer Engineering · Class of 2029</p>
-            <p>Brooklyn, New York</p>
+          <div className="section-body education-entries">
+            <div className="surface-card">
+              <h3 className="card-title">New York University Tandon School of Engineering</h3>
+              <p>B.S. Computer Engineering · Class of 2029</p>
+              <p>Brooklyn, New York</p>
+            </div>
+            <div className="surface-card">
+              <h3 className="card-title">Dr. Ronald E. McNair Academic High School</h3>
+              <p>Class of 2025</p>
+              <p>Jersey City, New Jersey</p>
+            </div>
           </div>
         </section>
 
