@@ -384,3 +384,21 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 .circuit-packet:nth-child(5n) { animation-duration: 36s !important; }
 .circuit-pads > g:nth-child(2n) .circuit-pad-light { animation-duration: 14s !important; }
 .circuit-pads > g:nth-child(3n) .circuit-pad-light { animation-duration: 16s !important; }
+
+/* Identity scrolls normally; only the circuit route sticks. */
+.top-identity { background: rgba(7,16,36,0.94); }
+.identity-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; }
+.site-nav { transition: background-color 300ms ease, backdrop-filter 300ms ease; }
+.site-nav.is-scrolled { background: rgba(7,16,36,0.76); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.site-nav .nav-inner { flex-wrap: nowrap; }
+.site-nav .circuit-navigation { order: initial; flex: 1 1 100%; }
+/* Preserve the existing orbit path and 40-second speed while increasing luminance. */
+.portrait-orbit { opacity: 1; }
+.portrait-orbit::before, .portrait-orbit::after {
+  left: calc(50% - 7px); width: 14px; height: 14px;
+  background: radial-gradient(circle, #f0f9ff 0% 25%, var(--glow-light) 50%, var(--glow-primary) 100%);
+  box-shadow: 0 0 8px var(--glow-light), 0 0 18px var(--glow-light), 0 0 34px color-mix(in srgb, var(--glow-light) 80%, transparent), 0 0 48px color-mix(in srgb, var(--glow-light) 45%, transparent);
+}
+.portrait-orbit::before { top: -6px; }
+.portrait-orbit::after { bottom: -6px; }
+.portrait-trail { padding: 3px; background: conic-gradient(transparent 0deg 95deg, color-mix(in srgb, var(--glow-light) 35%, transparent) 140deg, var(--glow-light) 180deg, transparent 182deg 275deg, color-mix(in srgb, var(--glow-light) 35%, transparent) 320deg, var(--glow-light) 360deg); }

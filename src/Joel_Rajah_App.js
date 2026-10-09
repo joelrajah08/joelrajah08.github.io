@@ -38,6 +38,7 @@ function revealSection(section) {
 function App() {
   const navRef = useRef(null);
   const [activeSection, setActiveSection] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     if (!('IntersectionObserver' in window)) return;
@@ -59,6 +60,7 @@ function App() {
 
     function updateActiveSection() {
       frame = undefined;
+      setScrolled(window.scrollY > 8);
       const activationLine = navHeight + (window.innerHeight - navHeight) * 0.25;
       const visible = sections.filter(section => {
         const bounds = section.getBoundingClientRect();
@@ -111,20 +113,24 @@ function App() {
   return (
     <div className="portfolio">
       <SectionBackground activeSection={activeSection} />
-      <header className="site-nav" role="banner" ref={navRef}>
-        <div className="container nav-inner">
+      <header className="top-identity" role="banner">
+        <div className="container identity-inner">
           <div className="brand">Joel Rajah</div>
-          <CircuitNavigation entries={navigation} activeSection={activeSection || 'home'} onNavigate={id => {
-            const section = document.getElementById(id);
-            const bounds = section.getBoundingClientRect();
-            if (bounds.top < window.innerHeight && bounds.bottom > 0) revealSection(section);
-          }} />
           <div className="status">
             <span className="status-dot" aria-hidden="true"></span>
             <span className="status-label">Open to work</span>
           </div>
         </div>
       </header>
+      <div className={`site-nav ${scrolled ? 'is-scrolled' : ''}`} ref={navRef}>
+        <div className="container nav-inner">
+          <CircuitNavigation entries={navigation} activeSection={activeSection || 'home'} onNavigate={id => {
+            const section = document.getElementById(id);
+            const bounds = section.getBoundingClientRect();
+            if (bounds.top < window.innerHeight && bounds.bottom > 0) revealSection(section);
+          }} />
+        </div>
+      </div>
       <HeroBanner />
 
       <main className="content-sections">
