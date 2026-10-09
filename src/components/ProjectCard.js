@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
+import { projectPhotos } from '../data/photos';
 
 function TechIcon({ name }) {
   // Inline SVGs for a couple common techs; fall back to text badge
@@ -29,14 +30,16 @@ function TechIcon({ name }) {
 
 export default function ProjectCard({ project }) {
   const [open, setOpen] = useState(false);
+  const photo = projectPhotos[project.id];
 
   return (
     <>
-      <article className="project-card" onClick={() => setOpen(true)} tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter') setOpen(true); }} role="button" aria-pressed="false">
+      <article className="project-card surface-card" onClick={() => setOpen(true)} tabIndex={0} onKeyDown={(e)=>{ if(e.target === e.currentTarget && (e.key==='Enter' || e.key===' ')) { e.preventDefault(); setOpen(true); } }} role="button" aria-haspopup="dialog" aria-label={`Details for ${project.title}`}>
+        {photo && <img className="project-photo" src={`${process.env.PUBLIC_URL}/${photo.src}`} alt={photo.alt} width="640" height="400" loading="lazy" />}
         <div className="project-top">
-          <h3 className="project-title">{project.title}</h3>
-          {project.role && <p>{project.role}</p>}
-          {project.date && <p className="timeline-date">{project.date}</p>}
+          <h3 className="project-title card-title">{project.title}</h3>
+          {project.role && <p className="card-meta">{project.role}</p>}
+          {project.date && <p className="card-meta">{project.date}</p>}
           <div className="project-tech">
             {(project.tech || []).map((t, i) => (
               <span className="tech-badge" key={i} title={t}>
@@ -49,7 +52,7 @@ export default function ProjectCard({ project }) {
 
         <p className="project-desc">{project.description}</p>
         {project.points && (
-          <ul className="timeline-points">
+          <ul className="card-points">
             {project.points.map((point) => <li key={point}>{point}</li>)}
           </ul>
         )}
@@ -70,7 +73,7 @@ export default function ProjectCard({ project }) {
           {project.role && <p>{project.role}</p>}
           {project.date && <p>{project.date}</p>}
           {project.points && (
-            <ul>{project.points.map((point) => <li key={point}>{point}</li>)}</ul>
+            <ul className="card-points">{project.points.map((point) => <li key={point}>{point}</li>)}</ul>
           )}
           <h4>Tech</h4>
           <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>

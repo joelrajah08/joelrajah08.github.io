@@ -5,6 +5,7 @@ import projects from './data/projects';
 import Timeline from './components/Timeline';
 import experience from './data/experience';
 import activities from './data/activities';
+import HeroBanner from './components/HeroBanner';
 
 const navigation = [
   ['about', 'About'],
@@ -97,48 +98,36 @@ function App() {
           </div>
         </div>
       </header>
-      <section className="hero">
-        <div className="hero-left">
-          <h1>Joel Rajah</h1>
-        </div>
-
-        <div className="hero-right">
-          <h2>Computer Engineering Student @ NYU Tandon — Jersey City, New Jersey</h2>
-          <p>
-            Computer Engineering student focused on applying an engineering mindset
-            to design reliable systems, lead teams, and deliver measurable real-world impact.
-          </p>
-            <div className="hero-cta hero-cta--center">
-              <a className="btn btn-cta" href="#projects">View Projects</a>
-              <a className="btn btn-cta" href="#contact">Contact Me</a>
-            </div>
-        </div>
-      </section>
+      <HeroBanner />
 
       <main className="container">
         <section id="about" className="section about">
-          <h2>About</h2>
-          <p>
-            I am a Computer Engineering student from Jersey City, New Jersey.
-            I study at New York University Tandon School of Engineering, Class of 2029.
-            My projects span real-time face recognition, embedded game controllers, and software-to-hardware interfaces.
-            I also bring experience in nonprofit web development, civic leadership, and campus community initiatives.
-          </p>
+          <h2 className="section-heading">About</h2>
+          <div className="section-body surface-card">
+            <p>
+              I am a Computer Engineering student from Jersey City, New Jersey.
+              I study at New York University Tandon School of Engineering, Class of 2029.
+              My projects span real-time face recognition, embedded game controllers, and software-to-hardware interfaces.
+              I also bring experience in nonprofit web development, civic leadership, and campus community initiatives.
+            </p>
+          </div>
         </section>
 
         <section id="education" className="section">
-          <h2>Education</h2>
-          <h3>New York University Tandon School of Engineering</h3>
-          <p>B.S. Computer Engineering · Class of 2029</p>
-          <p>Brooklyn, New York</p>
+          <h2 className="section-heading">Education</h2>
+          <div className="section-body surface-card">
+            <h3 className="card-title">New York University Tandon School of Engineering</h3>
+            <p>B.S. Computer Engineering · Class of 2029</p>
+            <p>Brooklyn, New York</p>
+          </div>
         </section>
 
         <section id="skills" className="section skills-section">
-          <h2>Skills</h2>
+          <h2 className="section-heading">Skills</h2>
 
-          <div className="skills-grid">
-            <div className="skills-group">
-              <h4>Technical</h4>
+          <div className="section-body content-grid skills-grid">
+            <div className="skills-group surface-card">
+              <h3 className="card-title">Technical</h3>
               <div className="skill-pills">
                 <span className="skill-pill">Python</span>
                 <span className="skill-pill">JavaScript</span>
@@ -149,8 +138,8 @@ function App() {
               </div>
             </div>
 
-            <div className="skills-group">
-              <h4>Other</h4>
+            <div className="skills-group surface-card">
+              <h3 className="card-title">Other</h3>
               <div className="skill-pills">
                 <span className="skill-pill">Leadership</span>
                 <span className="skill-pill">Public Speaking</span>
@@ -159,8 +148,8 @@ function App() {
               </div>
             </div>
 
-            <div className="skills-group">
-              <h4>Languages</h4>
+            <div className="skills-group surface-card">
+              <h3 className="card-title">Languages</h3>
               <div className="skill-pills">
                 <span className="skill-pill">English (Fluent)</span>
                 <span className="skill-pill">Spanish</span>
@@ -172,8 +161,8 @@ function App() {
         <Timeline entries={experience} />
 
         <section id="projects" className="section projects">
-          <h2>Projects</h2>
-          <div className="grid">
+          <h2 className="section-heading">Projects</h2>
+          <div className="section-body content-grid grid">
             {projects.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}
@@ -183,15 +172,17 @@ function App() {
         <Timeline entries={activities} id="activities" title="Activities" />
 
         <section id="contact" className="section contact">
-          <h2>Contact</h2>
-          <p>Email: <a href="mailto:joelrajah82@gmail.com">joelrajah82@gmail.com</a></p>
-          <p>Phone: <a href="tel:+12017053755">(201) 705-3755</a></p>
-          <p>
-            LinkedIn:{' '}
-            <a href="https://www.linkedin.com/in/joelrajah" target="_blank" rel="noreferrer">
-              linkedin.com/in/joelrajah
-            </a>
-          </p>
+          <h2 className="section-heading">Contact</h2>
+          <div className="section-body surface-card">
+            <p>Email: <a href="mailto:joelrajah82@gmail.com">joelrajah82@gmail.com</a></p>
+            <p>Phone: <a href="tel:+12017053755">(201) 705-3755</a></p>
+            <p>
+              LinkedIn:{' '}
+              <a href="https://www.linkedin.com/in/joelrajah" target="_blank" rel="noreferrer">
+                linkedin.com/in/joelrajah
+              </a>
+            </p>
+          </div>
         </section>
       </main>
 

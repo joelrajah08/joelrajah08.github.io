@@ -11,9 +11,9 @@ export default function Modal({ title, children, onClose }) {
 
   return (
     <div className="modal-overlay" role="dialog" aria-modal="true" aria-label={title} onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content surface-card" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h3>{title}</h3>
+          <h3 className="card-title">{title}</h3>
           <button className="modal-close" onClick={onClose} aria-label="Close">×</button>
         </div>
         <div className="modal-body">{children}</div>
