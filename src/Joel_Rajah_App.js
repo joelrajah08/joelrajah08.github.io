@@ -7,8 +7,10 @@ import experience from './data/experience';
 import activities from './data/activities';
 import HeroBanner from './components/HeroBanner';
 import SectionBackground from './components/SectionBackground';
+import CircuitNavigation from './components/CircuitNavigation';
 
 const navigation = [
+  ['home', 'Home'],
   ['about', 'About'],
   ['education', 'Education'],
   ['skills', 'Skills'],
@@ -112,19 +114,11 @@ function App() {
       <header className="site-nav" role="banner" ref={navRef}>
         <div className="container nav-inner">
           <div className="brand">Joel Rajah</div>
-          <nav aria-label="Primary navigation">
-            <ul className="nav-list">
-              {navigation.map(([id, label]) => (
-                <li key={id}>
-                  <a href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined} onClick={() => {
-                    const section = document.getElementById(id);
-                    const bounds = section.getBoundingClientRect();
-                    if (bounds.top < window.innerHeight && bounds.bottom > 0) revealSection(section);
-                  }}>{label}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <CircuitNavigation entries={navigation} activeSection={activeSection || 'home'} onNavigate={id => {
+            const section = document.getElementById(id);
+            const bounds = section.getBoundingClientRect();
+            if (bounds.top < window.innerHeight && bounds.bottom > 0) revealSection(section);
+          }} />
           <div className="status">
             <span className="status-dot" aria-hidden="true"></span>
             <span className="status-label">Open to work</span>

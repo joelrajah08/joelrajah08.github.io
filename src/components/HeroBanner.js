@@ -3,7 +3,7 @@ import CircuitBoard from './CircuitBoard';
 
 export default function HeroBanner() {
   return (
-    <section className="hero" aria-labelledby="hero-name">
+    <section id="home" className="hero" aria-labelledby="hero-name">
       <CircuitBoard />
       <div className="container hero-layout">
         <div className="portrait-frame">
