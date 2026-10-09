@@ -129,6 +129,7 @@ function App() {
 
       <main className="content-sections">
         <section id="about" className="section about">
+          <span className="section-label" aria-hidden="true">{'// about'}</span>
           <h2 className="section-heading">About</h2>
           <div className="section-body surface-card">
             <p>
@@ -144,34 +145,42 @@ function App() {
         </section>
 
         <section id="education" className="section">
+          <span className="section-label" aria-hidden="true">{'// education'}</span>
           <h2 className="section-heading">Education</h2>
           <div className="section-body education-entries">
             <div className="surface-card">
               <h3 className="card-title">New York University Tandon School of Engineering</h3>
-              <p>B.S. Computer Engineering · Class of 2029</p>
+              <p>B.S. Computer Engineering · <span className="date-label">Class of 2029</span></p>
               <p>Brooklyn, New York</p>
             </div>
             <div className="surface-card">
               <h3 className="card-title">Dr. Ronald E. McNair Academic High School</h3>
-              <p>Class of 2025</p>
+              <p className="date-label">Class of 2025</p>
               <p>Jersey City, New Jersey</p>
             </div>
           </div>
         </section>
 
         <section id="skills" className="section skills-section">
+          <span className="section-label" aria-hidden="true">{'<skills />'}</span>
           <h2 className="section-heading">Skills</h2>
 
           <div className="section-body content-grid skills-grid">
-            <div className="skills-group surface-card">
+            <div className="skills-architecture" aria-label="Technical skills architecture stack, highest layer first">
               <h3 className="card-title">Technical</h3>
-              <div className="skill-pills">
-                <span className="skill-pill">Python</span>
-                <span className="skill-pill">HTML</span>
-                <span className="skill-pill">CSS</span>
-                <span className="skill-pill">CAD</span>
-                <span className="skill-pill">React</span>
-              </div>
+              {[
+                ['AI / ML', ['Python']],
+                ['Software', ['HTML', 'CSS', 'React']],
+                ['Embedded / Systems', []],
+                ['Hardware', ['CAD']],
+              ].map(([layer, skills]) => (
+                <div className="architecture-layer surface-card" key={layer}>
+                  <h4>{layer}</h4>
+                  <div className="skill-pills">
+                    {skills.map(skill => <span className="skill-pill" key={skill}>{skill}</span>)}
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className="skills-group surface-card">
@@ -197,6 +206,7 @@ function App() {
         <Timeline entries={experience} />
 
         <section id="projects" className="section projects">
+          <span className="section-label" aria-hidden="true">{'// projects'}</span>
           <h2 className="section-heading">Projects</h2>
           <div className="section-body content-grid grid">
             {projects.map((p) => (
@@ -208,6 +218,7 @@ function App() {
         <Timeline entries={activities} id="activities" title="Activities" />
 
         <section id="contact" className="section contact">
+          <span className="section-label" aria-hidden="true">{'// contact'}</span>
           <h2 className="section-heading">Contact</h2>
           <div className="section-body surface-card">
             <p>Email: <a href="mailto:joelrajah82@gmail.com">joelrajah82@gmail.com</a></p>

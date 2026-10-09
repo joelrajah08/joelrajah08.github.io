@@ -1,5 +1,6 @@
 import { headshot } from '../data/photos';
 import CircuitBoard from './CircuitBoard';
+import TerminalLine from './TerminalLine';
 
 export default function HeroBanner() {
   return (
@@ -16,6 +17,7 @@ export default function HeroBanner() {
         </div>
         <div className="hero-copy">
           <h1 id="hero-name">Joel Rajah</h1>
+          <TerminalLine />
           <h2>Computer Engineering Student @ NYU Tandon — New York City, New York</h2>
           <p>
             Computer Engineering student focused on applying an engineering mindset

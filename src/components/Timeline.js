@@ -3,6 +3,7 @@ import React from 'react';
 export default function Timeline({ entries = [], id = 'leadership', title = 'Leadership & Experience' }) {
   return (
     <section id={id} className="section timeline-section">
+      <span className="section-label" aria-hidden="true">{`// ${id === 'leadership' ? 'leadership & experience' : id}`}</span>
       <h2 className="section-heading">{title}</h2>
       <div className="section-body timeline">
         {entries.map((e, idx) => {

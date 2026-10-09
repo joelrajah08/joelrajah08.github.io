@@ -39,7 +39,7 @@ export default function ProjectCard({ project }) {
         <div className="project-top">
           <h3 className="project-title card-title">{project.title}</h3>
           {project.role && <p className="card-meta">{project.role}</p>}
-          {project.date && <p className="card-meta">{project.date}</p>}
+          {project.date && <p className="card-meta date-label">{project.date}</p>}
           <div className="project-tech">
             {(project.tech || []).map((t, i) => (
               <span className="tech-badge" key={i} title={t}>
@@ -71,7 +71,7 @@ export default function ProjectCard({ project }) {
         <Modal title={project.title} onClose={() => setOpen(false)}>
           {project.description && <p style={{marginTop:0}}>{project.description}</p>}
           {project.role && <p>{project.role}</p>}
-          {project.date && <p>{project.date}</p>}
+          {project.date && <p className="date-label">{project.date}</p>}
           {project.points && (
             <ul className="card-points">{project.points.map((point) => <li key={point}>{point}</li>)}</ul>
           )}

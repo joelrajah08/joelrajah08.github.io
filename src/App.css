@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @property --border-angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -348,3 +350,42 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
   .nav-current, .nav-transfer { display: none; }
   .circuit-stop:hover .nav-component { animation: none; }
 }
+
+:root { --font-code: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; --terminal-green: #4ade80; }
+.date-label, .timeline-date, .tech-badge, .circuit-stop > span, .section-label { font-family: var(--font-code); }
+.section-label { display: block; margin-bottom: 8px; font-size: 0.8rem; color: var(--terminal-green); }
+.terminal-line { display: grid; font-family: var(--font-code); font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px !important; }
+.terminal-reserve, .terminal-visual { grid-area: 1 / 1; }
+.terminal-reserve { visibility: hidden; }
+.terminal-prompt, .terminal-cursor { color: var(--terminal-green); }
+.terminal-cursor { animation: terminal-blink 1.2s steps(1) infinite; }
+@keyframes terminal-blink { 50% { opacity: 0; } }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skills-architecture { min-width: 0; }
+.architecture-layer { margin-top: 20px; }
+.architecture-layer h4 { margin: 0 0 10px; font-size: 1rem; }
+.architecture-layer + .architecture-layer::after { content: ''; position: absolute; width: 2px; height: 20px; top: -21px; left: 50%; background: var(--glow-light); }
+/* Keep supporting motion away from text and subordinate to the active interaction. */
+.surface-card { background: var(--card-bg); }
+.surface-card::before { animation-duration: 30s; opacity: 0.5; }
+.portrait-orbit { animation-duration: 40s; opacity: 0.55; }
+.hero:has(.terminal-line[data-typing="true"]) .portrait-orbit { animation-play-state: paused; }
+.circuit-packets { opacity: 0.35; }
+.circuit-packet { animation-duration: 24s !important; }
+.circuit-pad-light { animation-duration: 12s !important; }
+.hero .circuit-packets, .hero .circuit-pads { mask-image: linear-gradient(90deg, #000 25%, transparent 38%); }
+.background-pcb .circuit-packets, .background-pcb .circuit-pads { mask-image: linear-gradient(90deg, #000, transparent 4% 96%, #000); }
+.nav-current { opacity: 0.25; animation-duration: 12s; }
+.background-photo { animation-duration: 60s; }
+@media (max-width: 700px) {
+  .hero .circuit-packets, .hero .circuit-pads { mask-image: linear-gradient(180deg, #000 25%, transparent 42%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .terminal-cursor { animation: none; }
+}
+.skills-architecture .skill-pill { font-family: var(--font-code); }
+.circuit-packet:nth-child(3n) { animation-duration: 28s !important; }
+.circuit-packet:nth-child(4n) { animation-duration: 32s !important; }
+.circuit-packet:nth-child(5n) { animation-duration: 36s !important; }
+.circuit-pads > g:nth-child(2n) .circuit-pad-light { animation-duration: 14s !important; }
+.circuit-pads > g:nth-child(3n) .circuit-pad-light { animation-duration: 16s !important; }
