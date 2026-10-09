@@ -227,3 +227,26 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Preserve the standard section width while giving projects room to breathe. */
+.content-sections > .section { width: 90%; max-width: 960px; margin: 0 auto; }
+.content-sections > .projects { max-width: 1200px; }
+.projects .content-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+.organization { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-bottom: 8px; }
+.organization-logo { width: 56px; height: 56px; flex-shrink: 0; object-fit: contain; box-sizing: border-box; padding: 4px; background: #fff; border-radius: 10px; }
+.organization .timeline-org { min-width: 0; }
+@keyframes section-layer-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .is-revealing > .section-heading { animation: section-layer-in 240ms ease-out backwards; }
+  .is-revealing .reveal-item { animation: section-layer-in 260ms ease-out backwards; animation-delay: var(--reveal-delay, 90ms); }
+}
+@media (max-width: 700px) {
+  .organization { justify-content: flex-start; }
+  .projects .content-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 520px) {
+  .content-sections > .section { width: 92%; }
+}

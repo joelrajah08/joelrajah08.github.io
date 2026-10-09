@@ -2,6 +2,7 @@ const experience = [
   {
     "role": "Cohort Member",
     "org": "UF Trailblazers First-Year Leadership Program",
+    "logo": "images/trailblazers-logo.png",
     "location": "University of Florida · Gainesville, FL",
     "date": "2025 – 2026",
     "points": [

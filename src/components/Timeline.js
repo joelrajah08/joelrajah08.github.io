@@ -12,7 +12,10 @@ export default function Timeline({ entries = [], id = 'leadership', title = 'Lea
               <div className="timeline-header">
                 <h3 className="timeline-role card-title">{e.role}</h3>
                 <div className="timeline-meta card-meta">
-                  <span className="timeline-org">{e.org}</span>
+                  <div className="organization">
+                    {e.logo && <img className="organization-logo" src={`${process.env.PUBLIC_URL}/${e.logo}`} alt={`${e.org} logo`} width="56" height="56" loading="lazy" />}
+                    <span className="timeline-org">{e.org}</span>
+                  </div>
                   {e.location && <span>{e.location}</span>}
                   {e.date && <span className="timeline-date">{e.date}</span>}
                 </div>

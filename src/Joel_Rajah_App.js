@@ -17,9 +17,36 @@ const navigation = [
   ['contact', 'Contact'],
 ];
 
+function revealSection(section) {
+  if (!section || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const items = section.querySelectorAll('.surface-card, .card-points li');
+  items.forEach((item, index) => {
+    item.classList.add('reveal-item');
+    item.style.setProperty('--reveal-delay', `${Math.min(90 + index * 70, 580)}ms`);
+  });
+  section.classList.remove('is-revealing');
+  window.requestAnimationFrame(() => {
+    // Flush the removed animation before replaying an already-visible section.
+    void section.offsetWidth;
+    section.classList.add('is-revealing');
+  });
+}
+
 function App() {
   const navRef = useRef(null);
   const [activeSection, setActiveSection] = useState(null);
+
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) revealSection(entry.target);
+        else entry.target.classList.remove('is-revealing');
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -15% 0px' });
+    document.querySelectorAll('main .section').forEach(section => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const sections = navigation.map(([id]) => document.getElementById(id)).filter(Boolean);
@@ -87,7 +114,11 @@ function App() {
             <ul className="nav-list">
               {navigation.map(([id, label]) => (
                 <li key={id}>
-                  <a href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined}>{label}</a>
+                  <a href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined} onClick={() => {
+                    const section = document.getElementById(id);
+                    const bounds = section.getBoundingClientRect();
+                    if (bounds.top < window.innerHeight && bounds.bottom > 0) revealSection(section);
+                  }}>{label}</a>
                 </li>
               ))}
             </ul>
@@ -100,12 +131,12 @@ function App() {
       </header>
       <HeroBanner />
 
-      <main className="container">
+      <main className="content-sections">
         <section id="about" className="section about">
           <h2 className="section-heading">About</h2>
           <div className="section-body surface-card">
             <p>
-              I am a Computer Engineering student from Jersey City, New Jersey.
+              I am a Computer Engineering student from New York City, New York.
               I study at New York University Tandon School of Engineering, Class of 2029.
               My projects span real-time face recognition, embedded game controllers, and software-to-hardware interfaces.
               I also bring experience in nonprofit web development, civic leadership, and campus community initiatives.
@@ -130,7 +161,6 @@ function App() {
               <h3 className="card-title">Technical</h3>
               <div className="skill-pills">
                 <span className="skill-pill">Python</span>
-                <span className="skill-pill">JavaScript</span>
                 <span className="skill-pill">HTML</span>
                 <span className="skill-pill">CSS</span>
                 <span className="skill-pill">CAD</span>
@@ -190,7 +220,7 @@ function App() {
         <div className="container">
           <small>© {new Date().getFullYear()} Joel Rajah</small>
           <br />
-          <small>Computer Engineering Student — NYU Tandon • Jersey City, New Jersey</small>
+          <small>Computer Engineering Student — NYU Tandon • New York City, New York</small>
         </div>
       </footer>
     </div>
