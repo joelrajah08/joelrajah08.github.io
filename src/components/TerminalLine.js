@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const text = 'Computer Engineering @ NYU | Interested in ML & intelligent systems';
+const text = 'Computer Engineering @ NYU';
 
 export default function TerminalLine() {
   const [typed, setTyped] = useState('');

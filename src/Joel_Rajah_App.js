@@ -166,21 +166,15 @@ function App() {
           <h2 className="section-heading">Skills</h2>
 
           <div className="section-body content-grid skills-grid">
-            <div className="skills-architecture" aria-label="Technical skills architecture stack, highest layer first">
+            <div className="skills-group surface-card">
               <h3 className="card-title">Technical</h3>
-              {[
-                ['AI / ML', ['Python']],
-                ['Software', ['HTML', 'CSS', 'React']],
-                ['Embedded / Systems', []],
-                ['Hardware', ['CAD']],
-              ].map(([layer, skills]) => (
-                <div className="architecture-layer surface-card" key={layer}>
-                  <h4>{layer}</h4>
-                  <div className="skill-pills">
-                    {skills.map(skill => <span className="skill-pill" key={skill}>{skill}</span>)}
-                  </div>
-                </div>
-              ))}
+              <div className="skill-pills">
+                <span className="skill-pill">Python</span>
+                <span className="skill-pill">HTML</span>
+                <span className="skill-pill">CSS</span>
+                <span className="skill-pill">CAD</span>
+                <span className="skill-pill">React</span>
+              </div>
             </div>
 
             <div className="skills-group surface-card">

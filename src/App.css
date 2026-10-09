@@ -361,10 +361,6 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 .terminal-cursor { animation: terminal-blink 1.2s steps(1) infinite; }
 @keyframes terminal-blink { 50% { opacity: 0; } }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.skills-architecture { min-width: 0; }
-.architecture-layer { margin-top: 20px; }
-.architecture-layer h4 { margin: 0 0 10px; font-size: 1rem; }
-.architecture-layer + .architecture-layer::after { content: ''; position: absolute; width: 2px; height: 20px; top: -21px; left: 50%; background: var(--glow-light); }
 /* Keep supporting motion away from text and subordinate to the active interaction. */
 .surface-card { background: var(--card-bg); }
 .surface-card::before { animation-duration: 30s; opacity: 0.5; }
@@ -383,7 +379,6 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .terminal-cursor { animation: none; }
 }
-.skills-architecture .skill-pill { font-family: var(--font-code); }
 .circuit-packet:nth-child(3n) { animation-duration: 28s !important; }
 .circuit-packet:nth-child(4n) { animation-duration: 32s !important; }
 .circuit-packet:nth-child(5n) { animation-duration: 36s !important; }
