@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import ProjectCard from './components/ProjectCard';
 import projects from './data/projects';
@@ -5,21 +6,89 @@ import Timeline from './components/Timeline';
 import experience from './data/experience';
 import activities from './data/activities';
 
+const navigation = [
+  ['about', 'About'],
+  ['education', 'Education'],
+  ['skills', 'Skills'],
+  ['leadership', 'Experience'],
+  ['projects', 'Projects'],
+  ['activities', 'Activities'],
+  ['contact', 'Contact'],
+];
+
 function App() {
+  const navRef = useRef(null);
+  const [activeSection, setActiveSection] = useState(null);
+
+  useEffect(() => {
+    const sections = navigation.map(([id]) => document.getElementById(id)).filter(Boolean);
+    let observer;
+    let frame;
+    let navHeight = 0;
+
+    function updateActiveSection() {
+      frame = undefined;
+      const activationLine = navHeight + (window.innerHeight - navHeight) * 0.25;
+      const visible = sections.filter(section => {
+        const bounds = section.getBoundingClientRect();
+        return bounds.bottom > navHeight && bounds.top < window.innerHeight;
+      });
+      if (!visible.length) {
+        setActiveSection(null);
+        return;
+      }
+      const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+      const aboveLine = visible.filter(section => section.getBoundingClientRect().top <= activationLine);
+      const current = atBottom ? visible[visible.length - 1] : aboveLine[aboveLine.length - 1] || visible[0];
+      setActiveSection(current.id);
+    }
+
+    function scheduleUpdate() {
+      if (frame === undefined) frame = window.requestAnimationFrame(updateActiveSection);
+    }
+
+    function measureNavigation() {
+      navHeight = navRef.current.getBoundingClientRect().height;
+      document.documentElement.style.setProperty('--nav-height', `${navHeight}px`);
+      if (observer) observer.disconnect();
+      if ('IntersectionObserver' in window) {
+        observer = new IntersectionObserver(scheduleUpdate, {
+          rootMargin: `-${navHeight}px 0px 0px 0px`,
+          threshold: [0, 0.25, 0.5, 0.75, 1],
+        });
+        sections.forEach(section => observer.observe(section));
+      }
+      scheduleUpdate();
+    }
+
+    const resizeObserver = 'ResizeObserver' in window ? new ResizeObserver(measureNavigation) : null;
+    if (resizeObserver) resizeObserver.observe(navRef.current);
+    measureNavigation();
+    // Scroll updates also handle long sections and the last short section at the page bottom.
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', measureNavigation);
+    return () => {
+      if (observer) observer.disconnect();
+      if (resizeObserver) resizeObserver.disconnect();
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', measureNavigation);
+      document.documentElement.style.removeProperty('--nav-height');
+    };
+  }, []);
+
   return (
     <div className="portfolio">
-      <header className="site-nav" role="banner">
+      <header className="site-nav" role="banner" ref={navRef}>
         <div className="container nav-inner">
           <div className="brand">Joel Rajah</div>
           <nav aria-label="Primary navigation">
             <ul className="nav-list">
-              <li><a href="#about">About</a></li>
-              <li><a href="#education">Education</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#leadership">Experience</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#activities">Activities</a></li>
-              <li><a href="#contact">Contact</a></li>
+              {navigation.map(([id, label]) => (
+                <li key={id}>
+                  <a href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined}>{label}</a>
+                </li>
+              ))}
             </ul>
           </nav>
           <div className="status">
