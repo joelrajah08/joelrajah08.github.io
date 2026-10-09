@@ -13,6 +13,10 @@ const experience = [
   {
     "role": "Co-Founder, Web Developer & Civic Leadership Fellow",
     "org": "EmpowerED Learners & Alli Leadership Institute",
+    "logos": [
+      { "src": "images/empowered-learners-logo.jpeg", "alt": "EmpowerED Learners logo" },
+      { "src": "images/alli-leadership-logo.jpeg", "alt": "Alli Leadership Institute logo" }
+    ],
     "location": "Jersey City, NJ",
     "date": "2023 – 2026",
     "points": [

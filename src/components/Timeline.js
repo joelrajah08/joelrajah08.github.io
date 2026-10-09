@@ -5,29 +5,36 @@ export default function Timeline({ entries = [], id = 'leadership', title = 'Lea
     <section id={id} className="section timeline-section">
       <h2 className="section-heading">{title}</h2>
       <div className="section-body timeline">
-        {entries.map((e, idx) => (
-          <div className="timeline-item" key={e.role + idx}>
-            <div className="timeline-marker" aria-hidden="true" />
-            <div className="timeline-content surface-card">
-              <div className="timeline-header">
-                <h3 className="timeline-role card-title">{e.role}</h3>
-                <div className="timeline-meta card-meta">
-                  <div className="organization">
-                    {e.logo && <img className="organization-logo" src={`${process.env.PUBLIC_URL}/${e.logo}`} alt={`${e.org} logo`} width="56" height="56" loading="lazy" />}
-                    <span className="timeline-org">{e.org}</span>
+        {entries.map((e, idx) => {
+          const logos = e.logos || (e.logo ? [{ src: e.logo, alt: `${e.org} logo` }] : []);
+          return (
+            <div className="timeline-item" key={e.role + idx}>
+              <div className="timeline-marker" aria-hidden="true" />
+              <div className="timeline-content surface-card organization-panel">
+                {logos.length > 0 && (
+                  <div className="organization-logos">
+                    {logos.map(logo => <img className="organization-logo" key={logo.src} src={`${process.env.PUBLIC_URL}/${logo.src}`} alt={logo.alt} width="100" height="100" loading="lazy" />)}
                   </div>
-                  {e.location && <span>{e.location}</span>}
-                  {e.date && <span className="timeline-date">{e.date}</span>}
+                )}
+                <div className="organization-details">
+                  <div className="timeline-header">
+                    <h3 className="timeline-role card-title">{e.role}</h3>
+                    <div className="timeline-meta card-meta">
+                      <span className="timeline-org">{e.org}</span>
+                      {e.location && <span>{e.location}</span>}
+                      {e.date && <span className="timeline-date">{e.date}</span>}
+                    </div>
+                  </div>
+                  <ul className="card-points">
+                    {e.points.map((p, i) => (
+                      <li key={i}>{p}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <ul className="card-points">
-                {e.points.map((p, i) => (
-                  <li key={i}>{p}</li>
-                ))}
-              </ul>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

@@ -250,3 +250,20 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 @media (max-width: 520px) {
   .content-sections > .section { width: 92%; }
 }
+
+/* Organization panels share a generous logo column and adjacent text. */
+.organization-panel { display: flex; align-items: flex-start; gap: 24px; }
+.organization-logos { display: flex; flex-direction: column; gap: 16px; flex: 0 0 100px; }
+.organization-panel .organization-logo { width: 100px; height: 100px; }
+.organization-details { flex: 1; min-width: 0; }
+.organization-panel .timeline-header { display: flex; flex-direction: column; gap: 4px; }
+.organization-panel .timeline-meta { text-align: left; }
+.contact { text-align: center; }
+.contact .section-body { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.contact .section-body p { margin: 0; }
+@media (max-width: 700px) {
+  .organization-panel { flex-direction: column; }
+  .organization-logos { flex-direction: row; flex-wrap: wrap; flex: none; }
+  .organization-panel .organization-logo { width: 64px; height: 64px; }
+  .organization-details { width: 100%; }
+}

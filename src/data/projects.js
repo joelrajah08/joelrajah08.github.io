@@ -20,12 +20,16 @@ const projects = [
     "id": "rc-car-interface",
     "title": "RC Car Control Interface",
     "role": "Frontend Developer",
-    "date": "April 2026 – June 2026",
-    "description": "A real-time RC car control interface with low-latency inputs and responsive hardware control.",
-    "tech": [],
+    "date": "April 2026 - June 2026",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "REST APIs"
+    ],
     "points": [
-      "Engineered a real-time RC car control interface focused on low-latency input handling and intuitive user interaction, delivering responsive hardware control through a clean, purpose-built frontend.",
-      "Deepened full-stack systems knowledge through hands-on software-to-hardware integration, applying iterative testing and debugging to build a reliable, production-ready control system."
+      "Developed a React and TypeScript frontend for an RC car telemetry chatbot, designing an interactive interface for querying vehicle data through natural-language inputs.",
+      "Worked on frontend architecture for integrating REST API communication with a Python/FastAPI backend, supporting retrieval of vehicle telemetry from a Neo4j knowledge graph."
     ]
   },
   {

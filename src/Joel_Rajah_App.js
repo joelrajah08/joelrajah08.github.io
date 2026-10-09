@@ -136,10 +136,13 @@ function App() {
           <h2 className="section-heading">About</h2>
           <div className="section-body surface-card">
             <p>
-              I am a Computer Engineering student from New York City, New York.
-              I study at New York University Tandon School of Engineering, Class of 2029.
-              My projects span real-time face recognition, embedded game controllers, and software-to-hardware interfaces.
-              I also bring experience in nonprofit web development, civic leadership, and campus community initiatives.
+              Currently a Computer Engineering student at New York University, focused on machine learning and intelligent systems, but what really drives me is seeing true human ideas come to life. At some point, I stopped being satisfied with just understanding concepts and started chasing the moment where something I built actually works in the real world. That shift is what pushed me to develop things like a real-time facial recognition system and to keep going deeper into how these systems are designed and applied.
+            </p>
+            <p>
+              Professionally, I am interested in the intersection of AI, software engineering, and product development, where ideas move beyond theory and become real, usable systems. I enjoy going deep into how things work, whether that's understanding models, systems, or the full process behind building something from start to finish.
+            </p>
+            <p>
+              At the same time, I value being part of something bigger than just technical work. Through my involvement in organizations like NSBE and the Indo-Caribbean Student Association, I stay connected to communities that are often underrepresented in tech, because creating a more inclusive space is part of how I approach this field. As I continue to grow, I'm looking for opportunities and people that challenge me, expand how I think, and allow me to build work that has real impact.
             </p>
           </div>
         </section>
