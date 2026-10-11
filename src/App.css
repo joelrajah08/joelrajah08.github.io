@@ -389,6 +389,11 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 .contact-port:hover .contact-port-icon, .contact-port:focus-visible .contact-port-icon { filter: drop-shadow(0 0 8px var(--glow-light)); }
 .contact-port:hover .contact-wire-pulse, .contact-port:focus-visible .contact-wire-pulse { animation: contact-connect 650ms ease-out; }
 .contact .contact-feedback { min-height: 1.6em; font-size: 0.85rem; color: var(--glow-light); }
+.contact-branch, .contact-port-icon, .contact-ports::before { pointer-events: none; }
+.contact-email-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; }
+.contact-email-row a { user-select: text; }
+.contact-copy { padding: 4px 10px; border: 1px solid var(--glass-border); border-radius: 6px; background: transparent; color: var(--glow-light); font: inherit; font-size: 0.8rem; cursor: pointer; }
+.contact-copy:hover { background: color-mix(in srgb, var(--glow-primary) 12%, transparent); }
 .footer-signature { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0 0; font-family: var(--font-code); font-size: 0.75rem; }
 .footer-led { width: 6px; height: 6px; border-radius: 50%; background: var(--glow-light); box-shadow: 0 0 8px var(--glow-primary); }
 @keyframes contact-connect { 0% { opacity: 0; stroke-dashoffset: 12; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; stroke-dashoffset: -100; } }

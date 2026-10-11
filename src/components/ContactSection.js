@@ -9,7 +9,7 @@ const icons = {
   Resume: 'M7 2H18L24 8V26H7ZM18 2V8H24M11 14H20M11 19H20',
 };
 
-function Port({ label, href, onClick }) {
+function Port({ label, href }) {
   const contents = <>
     <svg className="contact-branch" viewBox="0 0 100 44" aria-hidden="true">
       <path className="contact-wire" d="M0 2H100M50 2V38" />
@@ -22,14 +22,14 @@ function Port({ label, href, onClick }) {
     </svg>
     <span>{label}</span>
   </>;
-  return onClick
-    ? <button className="contact-port" type="button" onClick={onClick}>{contents}</button>
-    : <a className="contact-port" href={href} target="_blank" rel="noopener noreferrer">{contents}</a>;
+  const external = !href.startsWith('mailto:');
+  return <a className="contact-port" href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>{contents}</a>;
 }
 
 export default function ContactSection() {
   const sectionRef = useRef(null);
   const resetTimer = useRef(null);
+  const emailRef = useRef(null);
   const [started, setStarted] = useState(false);
   const [feedback, setFeedback] = useState('');
   useEffect(() => {
@@ -44,13 +44,43 @@ export default function ContactSection() {
   }, []);
   async function copyEmail() {
     window.clearTimeout(resetTimer.current);
+    let copied = false;
     try {
-      await navigator.clipboard.writeText(email);
-      setFeedback('Copied!');
-    } catch {
-      setFeedback('Copy unavailable. Select the email below to copy it.');
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(email);
+        copied = true;
+      }
+    } catch { /* Try the legacy method if clipboard access is denied. */ }
+    if (!copied) {
+      const previousFocus = document.activeElement;
+      const textarea = document.createElement('textarea');
+      textarea.value = email;
+      textarea.readOnly = true;
+      textarea.setAttribute('aria-hidden', 'true');
+      textarea.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none;';
+      document.body.appendChild(textarea);
+      try {
+        textarea.focus();
+        textarea.select();
+        textarea.setSelectionRange(0, email.length);
+        copied = document.execCommand('copy');
+      } catch { /* Keep the visible email available for manual copying. */ }
+      finally {
+        textarea.remove();
+        previousFocus?.focus({ preventScroll: true });
+      }
     }
-    resetTimer.current = window.setTimeout(() => setFeedback(''), 3500);
+    if (copied) {
+      setFeedback('Copied!');
+      resetTimer.current = window.setTimeout(() => setFeedback(''), 2000);
+    } else {
+      const range = document.createRange();
+      range.selectNodeContents(emailRef.current);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      setFeedback('Press Ctrl/Cmd+C to copy');
+    }
   }
   return (
     <section id="contact" className="section contact" ref={sectionRef}>
@@ -61,14 +91,14 @@ export default function ContactSection() {
         <p className="contact-invitation">Whether it's a project, an opportunity, or just a conversation about building things that matter, my inbox is open.</p>
         <p className="contact-location">Based in New York City, New York</p>
         <div className="contact-ports">
-          <Port label="Email" onClick={copyEmail} />
+          <Port label="Email" href={`mailto:${email}`} />
           <Port label="LinkedIn" href="https://www.linkedin.com/in/joelrajah" />
           <Port label="GitHub" href="https://github.com/joelrajah08" />
           <Port label="Resume" href="resume/Joel-Rajah-Resume.pdf" />
         </div>
         <p className="contact-feedback" role="status" aria-live="polite">{feedback}</p>
-        <p>Email: <a href={`mailto:${email}`}>{email}</a></p>
-        <p>School email: <a href="mailto:jr7178@nyu.edu">jr7178@nyu.edu</a></p>
+        <p className="contact-email-row">Email: <a ref={emailRef} href={`mailto:${email}`}>{email}</a> <button className="contact-copy" type="button" onClick={copyEmail} aria-label="Copy email address">Copy</button></p>
+        <p>School email: <a href={`mailto:${email}`}>{email}</a></p>
         <p>Phone: <a href="tel:+12017053755">(201) 705-3755</a></p>
       </div>
     </section>
