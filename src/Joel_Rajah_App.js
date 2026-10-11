@@ -113,15 +113,6 @@ function App() {
   return (
     <div className="portfolio">
       <SectionBackground activeSection={activeSection} />
-      <header className="top-identity" role="banner">
-        <div className="container identity-inner">
-          <div className="brand">Joel Rajah</div>
-          <div className="status">
-            <span className="status-dot" aria-hidden="true"></span>
-            <span className="status-label">Open to work</span>
-          </div>
-        </div>
-      </header>
       <div className={`site-nav ${scrolled ? 'is-scrolled' : ''}`} ref={navRef}>
         <div className="container nav-inner">
           <CircuitNavigation entries={navigation} activeSection={activeSection || 'home'} onNavigate={id => {
