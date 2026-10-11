@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import TerminalLine from './TerminalLine';
-import ContactForm from './ContactForm';
 import EmailRow from './EmailRow';
 
 const icons = {
@@ -56,7 +55,6 @@ export default function ContactSection() {
           <EmailRow label="School" email="jr7178@nyu.edu" />
         </div>
         <p>Phone: <a href="tel:+12017053755">(201) 705-3755</a></p>
-        <ContactForm />
       </div>
     </section>
   );
