@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import TerminalLine from './TerminalLine';
 import ContactForm from './ContactForm';
+import EmailRow from './EmailRow';
 
 const icons = {
   LinkedIn: 'M5 12V23M5 6V7M12 23V12M12 17C12 10 23 10 23 17V23',
@@ -49,6 +50,10 @@ export default function ContactSection() {
           <Port label="LinkedIn" href="https://www.linkedin.com/in/joelrajah" />
           <Port label="GitHub" href="https://github.com/joelrajah08" />
           <Port label="Resume" href="resume/Joel-Rajah-Resume.pdf" />
+        </div>
+        <div className="contact-emails">
+          <EmailRow label="Personal" email="joelrajah82@gmail.com" />
+          <EmailRow label="School" email="jr7178@nyu.edu" />
         </div>
         <p>Phone: <a href="tel:+12017053755">(201) 705-3755</a></p>
         <ContactForm />

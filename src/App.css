@@ -389,6 +389,13 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 .contact-port:hover .contact-port-icon, .contact-port:focus-visible .contact-port-icon { filter: drop-shadow(0 0 8px var(--glow-light)); }
 .contact-port:hover .contact-wire-pulse, .contact-port:focus-visible .contact-wire-pulse { animation: contact-connect 650ms ease-out; }
 .contact-branch, .contact-port-icon, .contact-ports::before { pointer-events: none; }
+.contact-emails { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; }
+.contact-email-entry { width: 100%; }
+.contact-email-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; }
+.contact-email-address { user-select: text; overflow-wrap: anywhere; color: var(--glow-light); }
+.contact-copy { padding: 4px 10px; border: 1px solid var(--glass-border); border-radius: 6px; background: transparent; color: var(--glow-light); font: inherit; font-size: 0.8rem; cursor: pointer; }
+.contact-copy:hover { background: color-mix(in srgb, var(--glow-primary) 12%, transparent); }
+.contact .contact-copy-feedback { min-height: 1.6em; font-size: 0.85rem; color: var(--glow-light); }
 .contact-form { width: 100%; max-width: 620px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--glass-border); text-align: left; }
 .contact-form-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .contact-form label { display: block; margin-bottom: 6px; color: var(--glow-light); font-family: var(--font-code); font-size: 0.8rem; }
