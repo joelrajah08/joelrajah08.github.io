@@ -394,6 +394,20 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 .contact-email-row a { user-select: text; }
 .contact-copy { padding: 4px 10px; border: 1px solid var(--glass-border); border-radius: 6px; background: transparent; color: var(--glow-light); font: inherit; font-size: 0.8rem; cursor: pointer; }
 .contact-copy:hover { background: color-mix(in srgb, var(--glow-primary) 12%, transparent); }
+.contact-email-port { position: relative; min-width: 0; }
+.contact a.contact-mail-app { display: block; margin-bottom: 8px; font-size: 0.75rem; font-weight: 400; }
+.contact-form { width: 100%; max-width: 620px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--glass-border); text-align: left; }
+.contact-form-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.contact-form label { display: block; margin-bottom: 6px; color: var(--glow-light); font-family: var(--font-code); font-size: 0.8rem; }
+.contact-form input, .contact-form textarea { display: block; box-sizing: border-box; width: 100%; margin-bottom: 16px; padding: 10px 12px; border: 1px solid var(--glass-border); border-radius: 8px; background: rgba(7,16,36,0.75); color: var(--text); font: inherit; }
+.contact-form textarea { resize: vertical; min-height: 120px; }
+.contact-form input:focus-visible, .contact-form textarea:focus-visible { outline: 2px solid var(--glow-light); outline-offset: 3px; }
+.contact-send { display: block; margin: 0 auto; padding: 10px 28px; border: 1px solid var(--glow-primary); border-radius: 8px; background: color-mix(in srgb, var(--glow-primary) 12%, transparent); color: var(--text); font: inherit; cursor: pointer; }
+.contact-send:hover:not(:disabled) { box-shadow: 0 0 12px color-mix(in srgb, var(--glow-primary) 25%, transparent); }
+.contact-send:disabled { opacity: 0.5; cursor: default; }
+.contact-form .contact-form-note, .contact-form .contact-form-status { text-align: center; margin-top: 12px; font-size: 0.85rem; }
+.contact-form-status { min-height: 1.6em; color: var(--glow-light); }
+@media (max-width: 520px) { .contact-form-fields { grid-template-columns: minmax(0, 1fr); gap: 0; } }
 .footer-signature { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0 0; font-family: var(--font-code); font-size: 0.75rem; }
 .footer-led { width: 6px; height: 6px; border-radius: 50%; background: var(--glow-light); box-shadow: 0 0 8px var(--glow-primary); }
 @keyframes contact-connect { 0% { opacity: 0; stroke-dashoffset: 12; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; stroke-dashoffset: -100; } }

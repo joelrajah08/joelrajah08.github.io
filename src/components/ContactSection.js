@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import TerminalLine from './TerminalLine';
+import ContactForm from './ContactForm';
 
 const email = 'joelrajah82@gmail.com';
 const icons = {
@@ -91,7 +92,10 @@ export default function ContactSection() {
         <p className="contact-invitation">Whether it's a project, an opportunity, or just a conversation about building things that matter, my inbox is open.</p>
         <p className="contact-location">Based in New York City, New York</p>
         <div className="contact-ports">
-          <Port label="Email" href={`mailto:${email}`} />
+          <div className="contact-email-port">
+            <Port label="Email" href={`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`} />
+            <a className="contact-mail-app" href={`mailto:${email}`}>Open in mail app</a>
+          </div>
           <Port label="LinkedIn" href="https://www.linkedin.com/in/joelrajah" />
           <Port label="GitHub" href="https://github.com/joelrajah08" />
           <Port label="Resume" href="resume/Joel-Rajah-Resume.pdf" />
@@ -100,6 +104,7 @@ export default function ContactSection() {
         <p className="contact-email-row">Email: <a ref={emailRef} href={`mailto:${email}`}>{email}</a> <button className="contact-copy" type="button" onClick={copyEmail} aria-label="Copy email address">Copy</button></p>
         <p>School email: <a href={`mailto:${email}`}>{email}</a></p>
         <p>Phone: <a href="tel:+12017053755">(201) 705-3755</a></p>
+        <ContactForm />
       </div>
     </section>
   );
