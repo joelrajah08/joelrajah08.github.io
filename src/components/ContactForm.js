@@ -45,10 +45,10 @@ export default function ContactForm() {
       <label htmlFor="contact-message">Message</label>
       <textarea id="contact-message" name="message" rows={5} required maxLength={10000} />
       <button type="submit" className="contact-send" disabled={!configured || status === 'sending'}>{status === 'sending' ? 'Sending…' : 'Send'}</button>
-      {!configured && <p className="contact-form-note">The contact form is being connected. Please use Email above for now.</p>}
+      {!configured && <p className="contact-form-note">The contact form is being connected. Please contact me on LinkedIn above for now.</p>}
       <p className="contact-form-status" role="status" aria-live="polite">
         {status === 'sent' && 'Message sent!'}
-        {status === 'error' && 'Message could not be sent. Please try again or use Email above.'}
+        {status === 'error' && 'Message could not be sent. Please try again or contact me on LinkedIn above.'}
         {status === 'invalid' && 'Please enter your name and a message.'}
       </p>
     </form>
