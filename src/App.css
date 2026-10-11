@@ -370,3 +370,27 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 .portrait-orbit::before { top: -6px; }
 .portrait-orbit::after { bottom: -6px; }
 .portrait-trail { padding: 3px; background: conic-gradient(transparent 0deg 95deg, color-mix(in srgb, var(--glow-light) 35%, transparent) 140deg, var(--glow-light) 180deg, transparent 182deg 275deg, color-mix(in srgb, var(--glow-light) 35%, transparent) 320deg, var(--glow-light) 360deg); }
+
+/* Contact connectors share a bus fed by a trace from above. */
+.contact > .terminal-line { max-width: 100%; justify-content: center; overflow-wrap: anywhere; }
+.contact-console { padding-top: 32px; }
+.contact-invitation { max-width: 620px; }
+.contact .contact-location { font-size: 0.85rem; color: var(--muted); }
+.contact-ports { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; max-width: 640px; margin-top: 32px; }
+.contact-ports::before { content: ''; position: absolute; width: 1px; height: 32px; background: var(--glow-primary); left: 50%; top: -32px; box-shadow: 0 0 8px var(--glow-primary); }
+.contact-port { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 50px 12px 16px; border: 0; border-radius: 10px; color: var(--glow-light); background: transparent; font: inherit; font-weight: 600; cursor: pointer; }
+.contact a.contact-port:hover { text-decoration: none; }
+.contact-branch { position: absolute; width: 100%; height: 44px; top: 0; overflow: visible; fill: var(--glow-light); }
+.contact-wire { fill: none; stroke: var(--glow-primary); stroke-width: 1; opacity: 0.55; }
+.contact-wire-pulse { fill: none; stroke: #e0f2fe; stroke-width: 2; stroke-dasharray: 12 100; stroke-dashoffset: 12; opacity: 0; }
+.contact-port-icon { width: 48px; height: 48px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 3px color-mix(in srgb, var(--glow-primary) 40%, transparent)); }
+.contact-connector { fill: #0b172c; stroke: var(--glow-primary); }
+.contact-port:hover, .contact-port:focus-visible { color: #e0f2fe; background: color-mix(in srgb, var(--glow-primary) 10%, transparent); }
+.contact-port:hover .contact-port-icon, .contact-port:focus-visible .contact-port-icon { filter: drop-shadow(0 0 8px var(--glow-light)); }
+.contact-port:hover .contact-wire-pulse, .contact-port:focus-visible .contact-wire-pulse { animation: contact-connect 650ms ease-out; }
+.contact .contact-feedback { min-height: 1.6em; font-size: 0.85rem; color: var(--glow-light); }
+.footer-signature { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0 0; font-family: var(--font-code); font-size: 0.75rem; }
+.footer-led { width: 6px; height: 6px; border-radius: 50%; background: var(--glow-light); box-shadow: 0 0 8px var(--glow-primary); }
+@keyframes contact-connect { 0% { opacity: 0; stroke-dashoffset: 12; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; stroke-dashoffset: -100; } }
+@media (max-width: 600px) { .contact-ports { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 16px; } }
+@media (prefers-reduced-motion: reduce) { .contact-port:hover .contact-wire-pulse, .contact-port:focus-visible .contact-wire-pulse { animation: none; } }

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 
-const text = 'Dedicated to the service of humanity and the progress of society.';
+const bannerText = 'Dedicated to the service of humanity and the progress of society.';
 
-export default function TerminalLine() {
+export default function TerminalLine({ text = bannerText, enabled = true }) {
   const [typed, setTyped] = useState('');
   useEffect(() => {
+    if (!enabled) return;
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
     let timer;
     function start() {
@@ -24,7 +25,7 @@ export default function TerminalLine() {
     start();
     preference.addEventListener('change', onPreferenceChange);
     return () => { window.clearInterval(timer); preference.removeEventListener('change', onPreferenceChange); };
-  }, []);
+  }, [text, enabled]);
   return (
     <p className="terminal-line" data-typing={typed.length < text.length}>
       <span className="visually-hidden">&gt; {text}</span>

@@ -8,6 +8,7 @@ import activities from './data/activities';
 import HeroBanner from './components/HeroBanner';
 import SectionBackground from './components/SectionBackground';
 import CircuitNavigation from './components/CircuitNavigation';
+import ContactSection from './components/ContactSection';
 
 const navigation = [
   ['home', 'Home'],
@@ -210,21 +211,7 @@ function App() {
 
         <Timeline entries={activities} id="activities" title="Activities" />
 
-        <section id="contact" className="section contact">
-          <span className="section-label" aria-hidden="true">{'// contact'}</span>
-          <h2 className="section-heading">Contact</h2>
-          <div className="section-body surface-card">
-            <p>Email: <a href="mailto:joelrajah82@gmail.com">joelrajah82@gmail.com</a></p>
-            <p>School email: <a href="mailto:jr7178@nyu.edu">jr7178@nyu.edu</a></p>
-            <p>Phone: <a href="tel:+12017053755">(201) 705-3755</a></p>
-            <p>
-              LinkedIn:{' '}
-              <a href="https://www.linkedin.com/in/joelrajah" target="_blank" rel="noreferrer">
-                linkedin.com/in/joelrajah
-              </a>
-            </p>
-          </div>
-        </section>
+        <ContactSection />
       </main>
 
       <footer className="site-footer">
@@ -232,6 +219,7 @@ function App() {
           <small>© {new Date().getFullYear()} Joel Rajah</small>
           <br />
           <small>Computer Engineering Student — NYU Tandon • New York City, New York</small>
+          <p className="footer-signature"><span className="footer-led" aria-hidden="true" />Built by Joel Rajah · 2026</p>
         </div>
       </footer>
     </div>
